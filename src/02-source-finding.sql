@@ -111,7 +111,8 @@ CREATE TABLE wallaby.source (
 CREATE TABLE wallaby.source_detection (
   "id" BIGSERIAL PRIMARY KEY,
   "source_id" BIGINT NOT NULL,
-  "detection_id" BIGINT NOT NULL
+  "detection_id" BIGINT NOT NULL,
+  unique ("source_id")
 );
 
 CREATE TABLE wallaby.comment (
