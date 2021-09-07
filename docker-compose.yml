@@ -1,0 +1,18 @@
+version: '3.5'
+
+services:
+  wallaby_db:
+    build: .
+    image: wallaby_db
+    container_name: wallaby_db
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    networks:
+      - wallaby_network
+
+networks:
+  wallaby_network:
+    name: wallaby_network
+    driver: bridge
