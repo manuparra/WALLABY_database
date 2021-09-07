@@ -1,4 +1,4 @@
-\connect sofiadb
+\connect wallabydb
 
 CREATE EXTENSION postgis;
 CREATE EXTENSION pg_sphere;

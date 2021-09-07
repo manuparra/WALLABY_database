@@ -1,11 +1,11 @@
 -- Create database
-CREATE DATABASE sofiadb WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'en_US.utf8' LC_CTYPE = 'en_US.utf8';
+CREATE DATABASE wallabydb WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'en_US.utf8' LC_CTYPE = 'en_US.utf8';
 
 -- Create admin user
 CREATE USER "admin";
 ALTER USER "admin" WITH PASSWORD 'admin';
 ALTER USER "admin" WITH SUPERUSER;
-ALTER DATABASE sofiadb OWNER TO "admin";
+ALTER DATABASE wallabydb OWNER TO "admin";
 
 -- Create WALLABY user (read only)
 CREATE USER "wallaby_user";
