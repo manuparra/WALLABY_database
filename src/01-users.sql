@@ -3,13 +3,13 @@ CREATE DATABASE wallabydb WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE
 
 -- Create admin user
 CREATE USER "admin";
-ALTER USER "admin" WITH PASSWORD 'YByBs3jf.2cfRa6DaP';
+ALTER USER "admin" WITH PASSWORD 'admin';
 ALTER USER "admin" WITH SUPERUSER;
 ALTER DATABASE wallabydb OWNER TO "admin";
 
 -- Create WALLABY user (read only)
 CREATE USER "wallaby_user";
-ALTER USER "wallaby_user" WITH PASSWORD 'wXZfqTAQjawxbw-YH3';
+ALTER USER "wallaby_user" WITH PASSWORD 'wallaby_user';
 
 -- Create VO user
 CREATE USER "gavo";
