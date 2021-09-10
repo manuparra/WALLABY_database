@@ -97,27 +97,29 @@ CREATE TABLE wallaby.product (
   "mom0" bytea,
   "mom1" bytea,
   "mom2" bytea,
-  "snr" bytea,
+  "snr" bytea NULL,
   "chan" bytea NULL,
-  "spec" bytea NULL,
+  "spec" bytea,
   unique ("detection_id")
 );
 
 CREATE TABLE wallaby.source (
   "id" BIGSERIAL PRIMARY KEY,
-  "name" varchar NOT NULL
+  "name" varchar NOT NULL,
+  unique ("name")
 );
 
 CREATE TABLE wallaby.source_detection (
   "id" BIGSERIAL PRIMARY KEY,
   "source_id" BIGINT NOT NULL,
   "detection_id" BIGINT NOT NULL,
-  unique ("source_id")
+  unique ("detection_id")
 );
 
 CREATE TABLE wallaby.comment (
   "id" BIGSERIAL PRIMARY KEY,
   "comment" text NOT NULL,
+  "author" text NOT NULL,
   "detection_id" bigint NOT NULL,
   "updated_at" timestamp without time zone NOT NULL
 );
@@ -134,6 +136,7 @@ CREATE TABLE wallaby.tag_detection (
   "id" BIGSERIAL PRIMARY KEY,
   "tag_id" bigint NOT NULL,
   "detection_id" bigint NOT NULL,
+  "author", text NOT NULL,
   "added_at" timestamp without time zone NOT NULL
 );
 
