@@ -136,7 +136,7 @@ CREATE TABLE wallaby.tag_detection (
   "id" BIGSERIAL PRIMARY KEY,
   "tag_id" bigint NOT NULL,
   "detection_id" bigint NOT NULL,
-  "author", text NOT NULL,
+  "author" text NOT NULL,
   "added_at" timestamp without time zone NOT NULL
 );
 
