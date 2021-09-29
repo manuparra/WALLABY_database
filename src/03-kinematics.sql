@@ -1,7 +1,8 @@
 \connect wallabydb
 
 CREATE TABLE wallaby.kinematic_model (
-  "source_name" varchar PRIMARY KEY,
+  "id" BIGSERIAL PRIMARY KEY,
+  "source_name" varchar NOT NULL,
   "Vsys_kin" double_precision NOT NULL,
   "e_Vsys_kin" double_precision NOT NULL,
   "X_kin" double_precision NOT NULL,
