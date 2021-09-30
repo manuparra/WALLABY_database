@@ -22,7 +22,7 @@ The first script [`01-users.sql`](src/01-users.sql) is used to create the databa
 
 ### Source finding
 
-The [`02-source-finding.sql`](src/02-source-finding.sql) and [`03-privileges.sql`](src/03-privileges.sql) scripts are used to create the tables required for source finding and access control. The tables are summarised below
+The [`02-source-finding.sql`](src/02-source-finding.sql) and [`05-privileges.sql`](src/05-privileges.sql) scripts are used to create the tables required for source finding and access control. The tables are summarised below
 
 | Name | Description |
 |---|---|
@@ -38,9 +38,13 @@ The [`02-source-finding.sql`](src/02-source-finding.sql) and [`03-privileges.sql
 
 ### Kinematics
 
-...
+The [`03-kinematics.sql`](src/03-kinematics.sql) script is used to create the tables required for source finding and access control. The tables are summarised below: 
+
+..
 
 ### Multi-wavelength
+
+The [`04-multi-wavelength.sql`](src/04-multi-wavelength.sql) script is used to create the tables required for source finding and access control. The tables are summarised below: 
 
 ...
 
