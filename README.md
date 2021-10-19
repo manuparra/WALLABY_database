@@ -2,7 +2,9 @@
 
 <!-- TODO(austin): build an official image for the WALLABY database -->
 
-## Overview
+# Overview
+
+## src
 
 The repository contains all of the `.sql` scripts (in the [`src/`](src/) folder) necessary for initialising a PostgreSQL database with the schema used for [WALLABY](https://wallaby-survey.org/) post-processing. The tables can be separated into three different groups:
 
@@ -83,3 +85,7 @@ Assuming you have PostgreSQL set up correctly, from there you will be able to ru
 ```
 
 You may need to create a default user and database. This [tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04) may help with this.
+
+## orm
+
+We also provide an object relational mapper with SQLAlchemy that will be compatible with the database. 
