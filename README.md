@@ -2,8 +2,6 @@
 
 <!-- TODO(austin): build an official image for the WALLABY database -->
 
-# Overview
-
 ## src
 
 The repository contains all of the `.sql` scripts (in the [`src/`](src/) folder) necessary for initialising a PostgreSQL database with the schema used for [WALLABY](https://wallaby-survey.org/) post-processing. The tables can be separated into three different groups:
@@ -89,3 +87,12 @@ You may need to create a default user and database. This [tutorial](https://www.
 ## orm
 
 We also provide an object relational mapper with SQLAlchemy that will be compatible with the database. 
+
+### Tests
+
+We have written some unit tests to ensure that the SQLAlchemy ORM works with the database schema. You can run them from the `orm/` directory with the following commands
+
+```
+python -m unittest tests/tests_wallaby_run.py
+python -m unittest tests/tests_wallaby_instance.py
+```
