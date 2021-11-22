@@ -1,3 +1,5 @@
+#TODO(austin): unittests to make sure users are able to use these classes to interact with the database
+
 from sqlalchemy import Column
 from sqlalchemy import Integer, String, DateTime, ForeignKey, \
                        Numeric, Boolean
