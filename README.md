@@ -35,6 +35,7 @@ The [`02-source-finding.sql`](src/02-source-finding.sql) and [`05-privileges.sql
 | `comment` | Comments applied to the detections table during manual inspection. |
 | `tag` | Tag name and description. |
 | `tag_detection` | Mapping from tags to the detections, added during manual inspection. |
+| `tag_source_detection` | Mapping from tags to the `source_detection` table for specifying release data. |
 
 ### Kinematics
 
