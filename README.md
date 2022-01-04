@@ -48,24 +48,27 @@ The [`04-multi-wavelength.sql`](src/04-multi-wavelength.sql) script is used to c
 
 ...
 
+### Provenance
+
+Provenance metadata allows for the results of the execution of the AusSRC WALLABY post-processing pipeline to be reproduced. This table, called `run_metadata`, links the Run with the metadata. The metadata that we include are:
+
+* repository (location of pipeline code)
+* branch (`github` branch to specify the component(s) of the pipeline that was executed)
+* version (`github` version or nextflow revision of the pipeline that was executed)
+* configuration (content of the `nextflow.config` file for the pipeline run)
+* parameters (content of the `params.yaml` for the pipeline run)
+* datetime (when the pipeline was executed)
+
 ## Deployment
 
 **NOTE** You will need to update passwords in the [`create.sql`](src/create.sql) file for any sort of security. Currently there are default passwords which are not appropriate for a production environment. You need to change them for either of the following deployment approaches.
 
 ### Docker
 
-The easiest method for deploying the WALLABY database is with the use of the Docker container. 
-
-To build the container you can run 
+The easiest method for deploying the WALLABY database is with the docker. We have provided a [`Dockerfile`](Dockerfile) that creates an PostgreSQL image with the scripts in the `src` subdirectory. To get this up and running:
 
 ```
-docker build -t wallaby_db .
-```
-
-from within the repository. Then to deploy, you can use the provided docker-compose script.
-
-```
-docker-compose up
+docker-compose up --build
 ```
 
 ### Manual
@@ -76,13 +79,11 @@ You can also install the schema on an existing PostgreSQL instance. You will als
 sudo apt install postgresql postgresql-contrib postgis sudo apt-get install postgresql-12-pgsphere
 ```
 
-Assuming you have PostgreSQL set up correctly, from there you will be able to run the [`init.sh`](init.sh)
+Once you have the dependencies you will need to initialise the database with the SQL scripts in the [`src/`](src/) subdirectory. To do this you can run the line below for each of the scripts in that directory. This is also how you can update an existing instance of the WALLABY database when there have been changes to the repository.
 
 ```
-./init.sh
+psql -h localhost -U admin -d wallabydb -f src/01-users.sql
 ```
-
-You may need to create a default user and database. This [tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04) may help with this.
 
 ## orm
 
