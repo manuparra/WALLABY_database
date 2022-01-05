@@ -113,32 +113,36 @@ CREATE TABLE wallaby.source_detection (
   "id" BIGSERIAL PRIMARY KEY,
   "source_id" BIGINT NOT NULL,
   "detection_id" BIGINT NOT NULL,
+  "added_at" timestamp without time zone,
   unique ("detection_id")
 );
+ALTER TABLE wallaby.source_detection ALTER COLUMN added_at SET DEFAULT now();
 
 CREATE TABLE wallaby.comment (
   "id" BIGSERIAL PRIMARY KEY,
   "comment" text NOT NULL,
   "author" text NOT NULL,
   "detection_id" bigint NOT NULL,
-  "updated_at" timestamp without time zone NOT NULL
+  "updated_at" timestamp without time zone
 );
 
 CREATE TABLE wallaby.tag (
   "id" BIGSERIAL PRIMARY KEY,
   "name" varchar NOT NULL,
   "description" text,
-  "added_at" timestamp without time zone NOT NULL,
+  "added_at" timestamp without time zone,
   unique ("name")
 );
+ALTER TABLE wallaby.tag ALTER COLUMN added_at SET DEFAULT now();
 
 CREATE TABLE wallaby.tag_detection (
   "id" BIGSERIAL PRIMARY KEY,
   "tag_id" bigint NOT NULL,
   "detection_id" bigint NOT NULL,
   "author" text NOT NULL,
-  "added_at" timestamp without time zone NOT NULL
+  "added_at" timestamp without time zone
 );
+ALTER TABLE wallaby.tag_detection ALTER COLUMN added_at SET DEFAULT now();
 
 ALTER TABLE wallaby.instance ADD FOREIGN KEY ("run_id") REFERENCES wallaby.run ("id") ON DELETE CASCADE;
 ALTER TABLE wallaby.detection ADD FOREIGN KEY ("instance_id") REFERENCES wallaby.instance ("id") ON DELETE CASCADE;
