@@ -1,14 +1,15 @@
 name: Sync schema
 on: [push]
 jobs:
+  # TODO(austin): cache postgresql client install
   sync_wallabydb:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Install PostgreSQL client
         run: |
-          apt-get update
-          apt-get install --yes postgresql-client
+          sudo apt-get update
+          sudo apt-get install --yes postgresql-client
       - name: Sync SQL scripts
         run: |
           psql -h 146.118.67.204 -d wallabydb -U admin -f src/02-source-finding.sql
@@ -24,8 +25,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install PostgreSQL client
         run: |
-          apt-get update
-          apt-get install --yes postgresql-client
+          sudo apt-get update
+          sudo apt-get install --yes postgresql-client
       - name: Sync SQL scripts
         run: |
           psql -h 146.118.69.200 -d wallabydb -U admin -f src/02-source-finding.sql
