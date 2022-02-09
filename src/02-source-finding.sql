@@ -96,8 +96,8 @@ ALTER TABLE wallaby.detection ADD FOREIGN KEY ("run_id") REFERENCES wallaby.run 
 CREATE TABLE wallaby.product (
   "id" BIGSERIAL PRIMARY KEY
 );
-ALTER TABLE wallaby.product ADD COLUMN "detection_id" BIGINT NOT NULL;
-ALTER TABLE wallaby.product ADD FOREIGN KEY ("detection_id") REFERENCES wallaby.detection ("id") ON DELETE CASCADE UNIQUE;
+ALTER TABLE wallaby.product ADD COLUMN "detection_id" BIGINT NOT NULL UNIQUE;
+ALTER TABLE wallaby.product ADD FOREIGN KEY ("detection_id") REFERENCES wallaby.detection ("id") ON DELETE CASCADE;
 ALTER TABLE wallaby.product ADD COLUMN "cube" bytea;
 ALTER TABLE wallaby.product ADD COLUMN "mask" bytea;
 ALTER TABLE wallaby.product ADD COLUMN "mom0" bytea;
