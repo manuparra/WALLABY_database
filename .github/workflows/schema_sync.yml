@@ -16,7 +16,6 @@ jobs:
           psql -h 146.118.67.204 -d wallabydb -U admin -f src/03-kinematics.sql
           psql -h 146.118.67.204 -d wallabydb -U admin -f src/04-multi-wavelength.sql
           psql -h 146.118.67.204 -d wallabydb -U admin -f src/05-privileges.sql
-          psql -h 146.118.67.204 -d wallabydb -U admin -f src/06-provenance.sql
         env:
           PGPASSWORD: ${{ secrets.AUSSRC_WALLABYDB_ADMIN_PASSWORD }}
   sync_replicationdb:
@@ -33,7 +32,6 @@ jobs:
           psql -h 146.118.69.200 -d wallabydb -U admin -f src/03-kinematics.sql
           psql -h 146.118.69.200 -d wallabydb -U admin -f src/04-multi-wavelength.sql
           psql -h 146.118.69.200 -d wallabydb -U admin -f src/05-privileges.sql
-          psql -h 146.118.69.200 -d wallabydb -U admin -f src/06-provenance.sql
         env:
           PGPASSWORD: ${{ secrets.AUSSRC_REPLICATIONDB_ADMIN_PASSWORD }}
   sync_spsrc:
@@ -50,6 +48,5 @@ jobs:
           psql -h 161.111.167.192 -d wallabydb -U admin -p 18020 -f src/03-kinematics.sql
           psql -h 161.111.167.192 -d wallabydb -U admin -p 18020 -f src/04-multi-wavelength.sql
           psql -h 161.111.167.192 -d wallabydb -U admin -p 18020 -f src/05-privileges.sql
-          psql -h 161.111.167.192 -d wallabydb -U admin -p 18020 -f src/06-provenance.sql
         env:
           PGPASSWORD: ${{ secrets.SPSRC_WALLABYDB_ADMIN_PASSWORD }}
