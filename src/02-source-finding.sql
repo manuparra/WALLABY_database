@@ -151,7 +151,7 @@ CREATE TABLE wallaby.tag_detection (
 ALTER TABLE wallaby.tag_detection ADD COLUMN "tag_id" bigint NOT NULL;
 ALTER TABLE wallaby.tag_detection ADD COLUMN "detection_id" bigint NOT NULL;
 ALTER TABLE wallaby.tag_detection ADD COLUMN "author" text NOT NULL;
-ALTER TABLE wallaby.tag_detection ADD COLUMN "added_at" timestamp without time zone;
+ALTER TABLE wallaby.tag_detection ADD COLUMN "added_at" timestamp without time zone NOT NULL;
 ALTER TABLE wallaby.tag_detection ALTER COLUMN added_at SET DEFAULT now();
 ALTER TABLE wallaby.tag_detection ADD FOREIGN KEY ("tag_id") REFERENCES wallaby.tag ("id") ON UPDATE CASCADE ON DELETE CASCADE;
 ALTER TABLE wallaby.tag_detection ADD FOREIGN KEY ("detection_id") REFERENCES wallaby.detection ("id") ON UPDATE CASCADE ON DELETE CASCADE;
